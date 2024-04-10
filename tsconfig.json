@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "@tsconfig/node-lts/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "lib": ["DOM"],
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "preserveWatchOutput": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true
+  }
+}
