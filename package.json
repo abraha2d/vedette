@@ -5,25 +5,41 @@
   "keywords": [],
   "license": "LGPL-3.0-or-later",
   "author": "abraha2d",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
     "build": "scripts/build.ts",
-    "start": "bun run build && electron ."
+    "check": "biome check .",
+    "watch": "bun run build --watch",
+    "start": "bun run watch && electron-forge start",
+    "package": "bun run build && electron-forge package",
+    "make": "bun run build && electron-forge make",
+    "publish": "bun run build && electron-forge publish"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.0",
     "@craftamap/esbuild-plugin-html": "^0.6.1",
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-dmg": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
     "@tsconfig/node-lts": "^20.1.3",
     "@tsconfig/strictest": "^2.0.5",
     "@types/bun": "^1.0.12",
+    "@types/electron-squirrel-startup": "^1.0.2",
     "@types/esbuild-copy-static-files": "^0.1.3",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
+    "concurrently": "^8.2.2",
     "electron": "^29.2.0",
     "esbuild": "^0.20.2"
   },

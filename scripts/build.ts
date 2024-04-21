@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import fs from "fs";
+import fs from "node:fs";
 import { htmlPlugin } from "@craftamap/esbuild-plugin-html";
 import esbuild, { type BuildOptions } from "esbuild";
 
@@ -24,7 +24,7 @@ if (defaultOptions.outdir) {
 console.log("\nBuilding electron entrypoint...");
 await esbuild.build({
   ...defaultOptions,
-  entryPoints: ["index.ts"],
+  entryPoints: ["src/main.ts"],
 });
 
 // Options specific to main entrypoint
