@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
-import esbuild, { type BuildOptions } from "esbuild";
-import { htmlPlugin } from "@craftamap/esbuild-plugin-html";
 import fs from "fs";
+import { htmlPlugin } from "@craftamap/esbuild-plugin-html";
+import esbuild, { type BuildOptions } from "esbuild";
 
 // Options common to both entrypoints
 const defaultOptions: BuildOptions = {
