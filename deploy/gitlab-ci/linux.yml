@@ -1,0 +1,4 @@
+include:
+  - local: /deploy/gitlab-ci/unix.yml
+    inputs:
+      tag: linux

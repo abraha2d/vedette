@@ -1,33 +1,4 @@
-image: node:latest
-
-cache:
-  paths:
-    - node_modules/
-
-deps:bun:
-  parallel:
-    matrix:
-      - tag:
-          - linux
-          - macos
-        cmd: 'curl -fsSL https://bun.sh/install | bash'
-      - tag: windows
-        cmd: 'powershell -c "irm bun.sh/install.ps1|iex"'
-  tags:
-    - $tag
-  script:
-    - $cmd
-  after_script:
-    - bun --revision
-
-deps:node:
-  needs:
-    - deps:bun
-  parallel:
-    matrix:
-      - tag:
-        - linux
-        - macos
-        - windows
-  script:
-    - bun install --frozen-lockfile
+include:
+  - /deploy/gitlab-ci/linux.yml
+  - /deploy/gitlab-ci/macos.yml
+  - /deploy/gitlab-ci/windows.yml

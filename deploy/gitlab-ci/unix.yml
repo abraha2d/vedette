@@ -1,0 +1,17 @@
+spec:
+  inputs:
+    tag:
+      options:
+        - linux
+        - macos
+---
+
+include:
+  - local: /deploy/gitlab-ci/common.yml
+    inputs:
+      tag: $[[ inputs.tag ]]
+
+"deps:bun:$[[ inputs.tag ]]":
+  image: node:latest
+  script:
+    - bash deploy/scripts/bun_install.sh

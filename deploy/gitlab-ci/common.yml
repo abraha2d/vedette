@@ -1,0 +1,27 @@
+spec:
+  inputs:
+    tag:
+      options:
+        - linux
+        - macos
+        - windows
+---
+
+cache:
+  paths:
+    - node_modules/
+
+"deps:bun:$[[ inputs.tag ]]":
+  tags: ["$[[ inputs.tag ]]"]
+  after_script:
+    - deploy/bin/bun/bin/bun --revision
+  artifacts:
+    paths:
+      - deploy/bin/
+
+"deps:node_modules:$[[ inputs.tag ]]":
+  needs:
+    - deps:bun:$[[ inputs.tag ]]
+  tags: ["$[[ inputs.tag ]]"]
+  script:
+    - bun install --frozen-lockfile

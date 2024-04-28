@@ -1,0 +1,9 @@
+include:
+  - local: /deploy/gitlab-ci/common.yml
+    inputs:
+      tag: windows
+
+deps:bun:windows:
+  image: mcr.microsoft.com/windows/servercore:ltsc2019
+  script:
+    - powershell -f deploy/scripts/bun_install.ps1
